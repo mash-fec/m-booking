@@ -20,7 +20,7 @@ const Reviews = styled.span`
 const Rule = styled.section`
   margin-top: 24px;
   margin-bottom: 24px;
-  border-bottom: 1px solid #d2d2d2
+  border-bottom: 1px solid #D2D2D2;
 `;
 
 const price = () => faker.random.number({
@@ -28,7 +28,7 @@ const price = () => faker.random.number({
   max: 1500
 }).toLocaleString();
 
-const Price = () => (
+const PriceRating = () => (
   <Wrapper>
     <Currency>${price()}</Currency> per night
     <br />
@@ -43,4 +43,4 @@ const Price = () => (
   </Wrapper>
 );
 
-export default Price;
+export default PriceRating;
