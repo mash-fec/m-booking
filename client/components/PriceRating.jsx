@@ -28,17 +28,17 @@ const price = () => faker.random.number({
   max: 1500
 }).toLocaleString();
 
-const PriceRating = () => (
+const PriceRating = props => (
   <Wrapper>
     <Currency>${price()}</Currency> per night
     <br />
     <StarRatings
-      rating={faker.random.number({ min: 3, max: 5 })}
+      rating={props.rating}
       starDimension="10px"
       starSpacing="0"
       starRatedColor="#008080"
       starEmptyColor="#B8B8B8"
-    /> <Reviews>{faker.random.number({ min: 1, max: 320 })}</Reviews>
+    /> <Reviews>{props.reviews}</Reviews>
     <Rule />
   </Wrapper>
 );

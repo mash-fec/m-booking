@@ -1,12 +1,14 @@
 const express = require('express');
+const httpProxy = require('http-proxy');
 
-const port = 3002;
+const apiProxy = httpProxy.createProxyServer();
 const app = express();
+const port = 3002;
 
 app.use(express.static('./public'));
 
-app.get('/', (req, res) => {
-  res.send('Hello World');
+app.get('/totalReviews', (req, res) => {
+  apiProxy.web(req, res, { target: 'http://localhost:3004' });
 });
 
 const server = app.listen(port, () => console.log(`Listening on port ${port}`));
