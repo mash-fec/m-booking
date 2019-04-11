@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { FiFlag } from 'react-icons/fi';
+import Price from './components/Price.jsx';
 
 const Wrapper = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700');
@@ -33,7 +34,7 @@ const Container = styled.div`
   font-size: 12px;
   font-weight: 600;
   height: 355px;
-  padding: 15px;
+  padding: 20px;
   margin: 10px;
   width: 375px;
 `;
@@ -51,26 +52,21 @@ const Links = styled.a`
   }
 `;
 
-class Booking extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+const indent = {
+  marginLeft: '45px'
+};
 
-    };
-  }
-
-  render() {
-    return (
-      <Wrapper>
-        <Container>
-          Testing
-          <Button>Book</Button>
-          You won&#39;t be charged yet
-        </Container>
-        <FiFlag /> <Links href="#">Report this listing</Links>
-      </Wrapper>
-    );
-  }
-}
+const Booking = () => (
+  <Wrapper>
+    <Container>
+      <Price />
+      <Button>Book</Button>
+      You won&#39;t be charged yet
+    </Container>
+    <div style={indent}>
+      <FiFlag /> <Links href="#">Report this listing</Links>
+    </div>
+  </Wrapper>
+);
 
 ReactDOM.render(<Booking />, document.getElementById('booking'));
