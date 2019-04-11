@@ -1,5 +1,8 @@
+/* eslint-disable react/no-unused-state */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import $ from 'jquery';
+import faker from 'faker';
 import styled from 'styled-components';
 import { FiFlag } from 'react-icons/fi';
 import PriceRating from './components/PriceRating.jsx';
@@ -59,19 +62,46 @@ const indent = {
   marginLeft: '45px'
 };
 
-const Booking = () => (
-  <Wrapper>
-    <Container>
-      <PriceRating />
-      <Dates />
-      <Guests />
-      <Button>Book</Button>
-      You won&#39;t be charged yet
-    </Container>
-    <div style={indent}>
-      <FiFlag /> <Links href="#">Report this listing</Links>
-    </div>
-  </Wrapper>
-);
+class Booking extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      reviews: [],
+      criteria: {}
+    };
+  }
+
+  componentDidMount() {
+    $.ajax({
+      url: '/totalReviews',
+      method: 'GET',
+      data: { id: faker.random.number({ min: 1, max: 100 }) },
+      success: (reviewData) => {
+        this.setState({
+          reviews: reviewData.reviews,
+          criteria: reviewData.criteria
+        });
+      },
+      error: (err) => { console.log('get reviews error: ', err); }
+    });
+  }
+
+  render() {
+    return (
+      <Wrapper>
+        <Container>
+          <PriceRating reviews={this.state.reviews.length} rating={this.state.criteria.totalRating} />
+          <Dates />
+          <Guests />
+          <Button>Book</Button>
+          You won&#39;t be charged yet
+        </Container>
+        <div style={indent}>
+          <FiFlag /> <Links href="#">Report this listing</Links>
+        </div>
+      </Wrapper>
+    );
+  }
+}
 
 ReactDOM.render(<Booking />, document.getElementById('booking'));
