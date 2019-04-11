@@ -11,17 +11,9 @@
 
 ## Table of Contents
 
-1. [Usage](#Usage)
-2. [Requirements](#Requirements)
-3. [Development](#Development)
-4. [Dependencies] (#Installing Depencencies)
-
-## Usage
-
-Install dependencies by running 'npm install'
-Run 'npm run webpack' to start webpack and create bundle.js
-Run 'npm run server' to start the server
-Open 'http://localhost:3002/' to load the individual module
+1. [Requirements](#Requirements)
+2. [Development](#Development)
+3. [Dependencies] (#Installing Depencencies)
 
 ## Requirements
 
@@ -38,5 +30,8 @@ From within the root directory:
 
 ```sh
 npm install -g webpack
-npm install
+Install dependencies by running 'npm install'
+Run 'npm run webpack' to start webpack and create bundle.js
+Run 'npm run server' to start the server
+Open 'http://localhost:3002/' to load the individual module
 ```

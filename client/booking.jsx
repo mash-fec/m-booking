@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { FiFlag } from 'react-icons/fi';
-import Price from './components/Price.jsx';
+import PriceRating from './components/PriceRating.jsx';
+import Dates from './components/Dates.jsx';
+import Guests from './components/Guests.jsx';
 
 const Wrapper = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700');
@@ -18,6 +20,7 @@ const Wrapper = styled.div`
 const Button = styled.div`
   background-color: #FF5A5F;
   border-radius: 4px;
+  cursor: pointer;
   display: block;
   color: #FFFFFF;
   font-size: 16px;
@@ -47,7 +50,7 @@ const Links = styled.a`
   text-decoration: none;
 
   :hover {
-    color: 484848;
+    color: #484848;
     text-decoration: underline;
   }
 `;
@@ -59,7 +62,9 @@ const indent = {
 const Booking = () => (
   <Wrapper>
     <Container>
-      <Price />
+      <PriceRating />
+      <Dates />
+      <Guests />
       <Button>Book</Button>
       You won&#39;t be charged yet
     </Container>
