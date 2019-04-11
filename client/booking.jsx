@@ -9,6 +9,8 @@ import PriceRating from './components/PriceRating.jsx';
 import Dates from './components/Dates.jsx';
 import Guests from './components/Guests.jsx';
 
+const id = window.id === undefined ? faker.random.number({ min: 1, max: 100 }) : window.id;
+
 const Wrapper = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700');
   color: #484848;
@@ -75,7 +77,7 @@ class Booking extends React.Component {
     $.ajax({
       url: '/totalReviews',
       method: 'GET',
-      data: { id: faker.random.number({ min: 1, max: 100 }) },
+      data: { id },
       success: (reviewData) => {
         this.setState({
           reviews: reviewData.reviews,
