@@ -3,7 +3,7 @@ const httpProxy = require('http-proxy');
 
 const apiProxy = httpProxy.createProxyServer();
 const app = express();
-const port = 3002;
+const port = process.env.PORT || 3002;
 
 app.use(express.static('./public'));
 

@@ -24,6 +24,8 @@ module.exports = {
     'no-nested-ternary': 'off',
     'no-param-reassign': 'off',
     'react/jsx-one-expression-per-line': 'off',
-    'jsx-a11y/anchor-is-valid': 'off'
+    'jsx-a11y/anchor-is-valid': 'off',
+    'react/no-unused-state': 'off',
+    'max-len': 'off'
   }
 };

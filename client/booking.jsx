@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unused-state */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
@@ -84,7 +83,14 @@ class Booking extends React.Component {
           criteria: reviewData.criteria
         });
       },
-      error: (err) => { console.log('get reviews error: ', err); }
+      error: (err) => {
+        console.log('get reviews error: ', err);
+        // if Vivek's totalReviews server is not reachable, use random numbers
+        this.setState({
+          reviews: faker.random.number({ min: 3, max: 5 }),
+          criteria: faker.random.number({ min: 1, max: 320 })
+        });
+      }
     });
   }
 
