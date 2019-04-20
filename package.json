@@ -8,8 +8,10 @@
     "node": ">=6.13.0"
   },
   "scripts": {
+    "start": "node server/index.js",
     "server": "nodemon server/index.js",
-    "webpack": "webpack -d --watch"
+    "webpack": "webpack -d --watch",
+    "build": "webpack -d"
   },
   "dependencies": {
     "express": "^4.16.4",
