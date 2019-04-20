@@ -87,8 +87,10 @@ class Booking extends React.Component {
         console.log('get reviews error: ', err);
         // if Vivek's totalReviews server is not reachable, use random numbers
         this.setState({
-          reviews: faker.random.number({ min: 3, max: 5 }),
-          criteria: faker.random.number({ min: 1, max: 320 })
+          reviews: new Array(faker.random.number({ min: 1, max: 320 })),
+          criteria: {
+            totalRating: faker.random.number({ min: 3, max: 5 })
+          }
         });
       }
     });
