@@ -8,7 +8,7 @@ const port = process.env.PORT || 3002;
 app.use(express.static('./public'));
 
 app.get('/totalReviews', (req, res) => {
-  apiProxy.web(req, res, { target: 'http://localhost:3004' });
+  apiProxy.web(req, res, { target: 'http://reviews.pfuzgfpajh.us-west-2.elasticbeanstalk.com/' });
 });
 
 const server = app.listen(port, () => console.log(`Listening on port ${port}`));
